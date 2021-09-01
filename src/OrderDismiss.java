@@ -1,20 +1,39 @@
 // Определение класса "Приказ об увольнении".
 public class OrderDismiss {
 
-    //Создает приказ с параметрами "кому", "причина увольнения", "статус", "номер документа"
-    public OrderDismiss(String to, String reason, String status, long numberDoc) {
+    String name = "Приказ об увольнении";
+    String to, reason;
+    int numberDoc;
+    Zadanie2.Status status;
 
-        System.out.println("-------------------------------------------------");
-        System.out.println();
-        System.out.println("\t\tПриказ об увольнении № " + numberDoc);
-        System.out.println();
-        System.out.println("\t\t\tСотрудник: " + to);
-        System.out.println();
-        System.out.println("Вы уволены.");
-        System.out.println("Причина увольнения, " + reason + ".");
-        System.out.println();
-        System.out.println("Статус документа: " + status);
-        System.out.println("-------------------------------------------------");
-        System.out.println();
+    public OrderDismiss(String to, String reason, int numberDoc, Zadanie2.Status status) {
+        this.to = to;
+        this.reason = reason;
+        this.numberDoc = numberDoc;
+        this.status = status;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public int getNumberDoc() {
+        return numberDoc;
+    }
+
+    public Zadanie2.Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Zadanie2.Status status) {
+        this.status = status;
     }
 }
