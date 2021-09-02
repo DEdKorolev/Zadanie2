@@ -13,6 +13,21 @@ public class OrderDismiss {
         this.status = status;
     }
 
+    public void printOrderDismiss (){
+        System.out.println("-------------------------------------------------");
+        System.out.println();
+        System.out.println("\t\t" + getName() + " № " + getNumberDoc());
+        System.out.println();
+        System.out.println("\t\t\tСотрудник: " + getTo());
+        System.out.println();
+        System.out.println("Вы уволены.");
+        System.out.println("Причина увольнения, " + getReason() + ".");
+        System.out.println();
+        System.out.println("Статус документа: " + getStatus());
+        System.out.println("-------------------------------------------------");
+        System.out.println();
+    }
+
     public String getName() {
         return name;
     }

@@ -12,7 +12,7 @@ public class Zadanie2 {
     public static void main(String[] args) {
 
         int numberDoc = 1; // Начальный номер документа
-        Status status = Status.Cоздан; // Переменная, отражающая статус документа
+        Status status = Status.Cоздан; // Переменная, отражающая статус документа(по умолчанию "Создан")
         String flagWorker, flagStatus; // Переменная для завершения ввода данных
         ArrayList<Worker> workerArrayList = new ArrayList<>(); // Массив ФИО сотрудников
         ArrayList<Letter> letterArrayList = new ArrayList<>(); // Массив писем
@@ -57,57 +57,22 @@ public class Zadanie2 {
             letterArrayList.add(letter); // Добавление письма в массив
             numberDoc++; // Увеличение № документа на 1
 
-            // Форма письма
-            System.out.println("-------------------------------------------------");
-            System.out.println();
-            System.out.println("\t\t" + letter.getName() + " № " + letter.getNumberDoc());
-            System.out.println();
-            System.out.println("\t\t\tкому: " + letter.getTo());
-            System.out.println("\t\t\tот кого: " + letter.getFrom());
-            System.out.println();
-            System.out.println("Здравствуйте, " + letter.getTo() + "!\n" +
-                    "Спешим обрадовать Вас приятной новостью:\n" +
-                    "\"Вы приняты на работу!\"\n" +
-                    "Но, к сожалению, Вы были сразу же уволены.");
-            System.out.println();
-            System.out.println("-------------------------------------------------");
-            System.out.println();
+            // Печать письма
+            letter.printLetter();
 
             OrderAccept orderAccept = new OrderAccept(to, numberDoc, status); //Создание объекта "Приказ на прием на работу"
             orderAcceptArrayList.add(orderAccept);  // Добавление приказа в массив
             numberDoc++; // Увеличение № документа на 1
 
-            // Форма приказа на прием на работу
-            System.out.println("-------------------------------------------------");
-            System.out.println();
-            System.out.println("\t\t" + orderAccept.getName() + " № " + orderAccept.getNumberDoc());
-            System.out.println();
-            System.out.println("\t\t\tСотрудник: " + orderAccept.getTo());
-            System.out.println();
-            System.out.println("Вы приняты на работу на должность программист.");
-            System.out.println();
-            System.out.println("Статус документа: " + orderAccept.getStatus());
-            System.out.println("-------------------------------------------------");
-            System.out.println();
+            // Печать приказа о приеме на работу
+            orderAccept.printOrderAccept();
 
-            // Создание объекта "Приказ на увольнение" и его добавление в карту map
             OrderDismiss orderDismiss = new OrderDismiss(to, reason, numberDoc, status); //Создание объекта "Приказ на увольнение"
             orderDismissArrayList.add(orderDismiss); // Добавление приказа в массив
             numberDoc++; // Увеличение № документа на 1
 
-            // Форма пприказа на увольнение
-            System.out.println("-------------------------------------------------");
-            System.out.println();
-            System.out.println("\t\t" + orderDismiss.getName() + " № " + orderDismiss.getNumberDoc());
-            System.out.println();
-            System.out.println("\t\t\tСотрудник: " + orderDismiss.getTo());
-            System.out.println();
-            System.out.println("Вы уволены.");
-            System.out.println("Причина увольнения, " + orderDismiss.getReason() + ".");
-            System.out.println();
-            System.out.println("Статус документа: " + orderDismiss.getStatus());
-            System.out.println("-------------------------------------------------");
-            System.out.println();
+            // Печать приказа на увольнение
+            orderDismiss.printOrderDismiss();
         }
 
         System.out.println("Перевести документы в статус \"Исполнено\"?" +

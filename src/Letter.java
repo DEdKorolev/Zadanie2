@@ -11,6 +11,23 @@ public class Letter {
         this.numberDoc = numberDoc;
     }
 
+    public void printLetter () {
+        System.out.println("-------------------------------------------------");
+        System.out.println();
+        System.out.println("\t\t" + getName() + " № " + getNumberDoc());
+        System.out.println();
+        System.out.println("\t\t\tкому: " + getTo());
+        System.out.println("\t\t\tот кого: " + getFrom());
+        System.out.println();
+        System.out.println("Здравствуйте, " + getTo() + "!\n" +
+                "Спешим обрадовать Вас приятной новостью:\n" +
+                "\"Вы приняты на работу!\"\n" +
+                "Но, к сожалению, Вы были сразу же уволены.");
+        System.out.println();
+        System.out.println("-------------------------------------------------");
+        System.out.println();
+    }
+
     public String getName() {
         return name;
     }
